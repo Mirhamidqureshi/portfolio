@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hamid Ali | Cybersecurity Portfolio</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
+    body{
+      background:#050a14;
+      color:#e0e0e0;
+      overflow-x:hidden;
+      line-height:1.6
+    }
+    header{
+      height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+      text-align:center;
+      background:radial-gradient(circle at top,#0f3d3d,#0f2027,#02060d);
+      position:relative;
+      overflow:hidden
+    }
+    h1{
+      font-size:3.8rem;
+      letter-spacing:3px;
+      color:#00ffcc;
+      animation:glow 2s infinite alternate
+    }
+    @keyframes glow{
+      from{text-shadow:0 0 10px #00ffcc}
+      to{text-shadow:0 0 30px #00ffcc}
+    }
+    .subtitle{
+      margin-top:15px;
+      font-size:1.15rem;
+      color:#9ae6d6;
+      max-width:900px
+    }
+    .btn{
+      margin-top:35px;
+      padding:14px 34px;
+      border:2px solid #00ffcc;
+      color:#00ffcc;
+      background:transparent;
+      cursor:pointer;
+      transition:.3s;
+      font-size:1rem
+    }
+    .btn:hover{
+      background:#00ffcc;
+      color:#050a14
+    }
+    section{
+      padding:90px 10%
+    }
+    .title{
+      font-size:2.4rem;
+      margin-bottom:45px;
+      color:#00ffcc;
+      text-transform:uppercase;
+      letter-spacing:2px
+    }
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:35px
+    }
+    .card{
+      background:linear-gradient(180deg,#0b1c2d,#081423);
+      padding:35px;
+      border-radius:18px;
+      transition:.4s;
+      border:1px solid rgba(0,255,204,.25);
+      min-height:100%
+    }
+    .card h3{
+      margin-bottom:15px;
+      color:#6fffe9
+    }
+    .card ul{list-style:none}
+    .card ul li{margin-bottom:8px;font-size:.95rem;color:#c9fff4}
+    .card:hover{
+      transform:translateY(-12px);
+      box-shadow:0 0 25px rgba(0,255,204,.45)
+    }
+    footer{
+      text-align:center;
+      padding:30px;
+      background:#02060d;
+      color:#6fffe9
+    }
+    canvas{
+      position:fixed;
+      top:0;left:0;
+      z-index:-1
+    }
+  @keyframes scroll{0%{opacity:0;transform:translateY(0)}50%{opacity:1}100%{opacity:0;transform:translateY(10px)}}
+  @keyframes scroll{0%{opacity:0;transform:translateY(0)}50%{opacity:1}100%{opacity:0;transform:translateY(10px)}}
+    @keyframes shine{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+  .stat{border:1px solid rgba(0,255,204,.35);padding:14px 20px;border-radius:12px;background:rgba(0,0,0,.35)}
+    .card:hover{box-shadow:0 0 30px rgba(255,60,60,.5)}
+    body{cursor:crosshair}
+    @keyframes scroll{0%{opacity:0;transform:translateY(0)}50%{opacity:1}100%{opacity:0;transform:translateY(12px)}}
+    @keyframes shine{0%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
+  .glitch{position:relative;color:#00ffcc;font-size:3.8rem;animation:glitch 2s infinite}
+    .glitch:before,.glitch:after{content:attr(data-text);position:absolute;left:0;top:0;width:100%;overflow:hidden}
+    .glitch:before{left:2px;text-shadow:-2px 0 red;clip-path:inset(0 0 60% 0);animation:glitchTop 2s infinite}
+    .glitch:after{left:-2px;text-shadow:-2px 0 cyan;clip-path:inset(40% 0 0 0);animation:glitchBottom 1.5s infinite}
+    @keyframes glitch{0%{transform:none}20%{transform:skewX(2deg)}40%{transform:skewX(-2deg)}60%{transform:none}100%{transform:none}}
+    @keyframes glitchTop{0%{clip-path:inset(0 0 80% 0)}50%{clip-path:inset(0 0 20% 0)}100%{clip-path:inset(0 0 80% 0)}}
+    @keyframes glitchBottom{0%{clip-path:inset(50% 0 0 0)}50%{clip-path:inset(10% 0 40% 0)}100%{clip-path:inset(50% 0 0 0)}}
+
+    .warning{position:absolute;top:20px;right:20px;padding:10px 16px;border:1px solid red;color:red;font-family:monospace;background:rgba(0,0,0,.6);animation:blink 1.5s infinite}
+    @keyframes blink{0%,50%{opacity:1}51%,100%{opacity:.3}}
+  html{scroll-behavior:smooth}
+    .card:hover::after{content:'VULNERABILITY DETECTED';position:absolute;top:10px;right:10px;font-size:.7rem;color:red;border:1px solid red;padding:4px 6px;background:black}
+    </style>
+</head>
+<body>
+
+<canvas id="matrix"></canvas>
+
+<header>
+  <div class="warning">⚠ SECURITY MODE ACTIVE</div>
+  <div id="alert" style="position:absolute;left:50%;top:60%;transform:translate(-50%,-50%);padding:14px 22px;border:2px solid red;color:red;font-family:monospace;background:rgba(0,0,0,.75);display:none;box-shadow:0 0 30px rgba(255,0,0,.6)">VULNERABILITY DETECTED</div>
+  <div style="position:absolute;inset:0;background:linear-gradient(120deg,transparent,rgba(0,255,204,.08),transparent);animation:shine 6s infinite"></div>
+  <div style="position:absolute;top:-50px;left:-50px;width:220px;height:220px;border-radius:50%;background:rgba(0,255,204,.15);filter:blur(90px)"></div>
+  <div style="position:absolute;bottom:-60px;right:-60px;width:260px;height:260px;border-radius:50%;background:rgba(0,255,204,.12);filter:blur(100px)"></div>
+
+  <div style="padding:35px 50px;border:2px solid rgba(0,255,204,.5);border-radius:20px;background:rgba(5,20,30,.65);backdrop-filter:blur(8px);box-shadow:0 0 60px rgba(0,255,204,.35)">
+    <h1 class="glitch" data-text="HAMID ALI">HAMID ALI</h1>
+    <div style="margin-top:10px;font-family:monospace;color:#6fffe9;font-size:0.9rem">root@hamid:~# whoami</div>
+  </div>
+
+  <div id="terminal" style="margin-top:30px;width:80%;max-width:720px;background:#02060d;border:1px solid rgba(0,255,204,.4);border-radius:14px;padding:18px;font-family:monospace;color:#00ffcc;box-shadow:0 0 35px rgba(0,255,204,.35)"></div>
+
+  <div style="margin-top:25px;color:#6fffe9;font-size:0.95rem">
+    📧 <a href="mailto:hamidqureshi302k@gmail.com" style="color:#00ffcc;text-decoration:none">hamidqureshi302k@gmail.com</a> &nbsp; | &nbsp;
+    🔗 <a href="https://www.linkedin.com/in/hamid-ali-qureshi/" target="_blank" style="color:#00ffcc;text-decoration:none">LinkedIn</a>
+  </div>
+
+  <div style="display:flex;gap:45px;margin-top:35px;color:#9ae6d6;font-size:0.95rem">
+    <div class="stat">200+<br>Labs</div>
+    <div class="stat">70+<br>Vulns</div>
+    <div class="stat">30+<br>Projects</div>
+  </div>
+
+  <button class="btn" onclick="scrollToSection()">Explore Portfolio</button>
+
+  <div style="position:absolute;bottom:30px;font-size:0.85rem;color:#00ffcc;animation:scroll 2s infinite;font-family:monospace">[ scroll_down ]</div>
+</header>
+
+<section id="about">
+  <div class="title">About Me</div>
+  <p>
+    I am a Computer Systems Engineering student with a strong interest in cybersecurity networking and ethical hacking
+    I actively practice penetration testing bug bounty and defensive security concepts using real world tools and labs
+    My goal is to become a professional cybersecurity engineer capable of securing modern cloud based systems
+  </p>
+</section>
+
+<section>
+  <div class="title">Core Skills</div>
+  <div class="grid">
+    <div class="card">
+      <h3>Cybersecurity & Pentesting</h3>
+      <ul>
+        <li>OWASP Top 10 Web Vulnerabilities</li>
+        <li>Reconnaissance & Enumeration</li>
+        <li>Web Application Testing</li>
+        <li>Authentication & Authorization Flaws</li>
+        <li>Information Disclosure & Misconfigurations</li>
+        <li>API Security Basics</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Bug Bounty & Vulnerabilities</h3>
+      <ul>
+        <li>SQL Injection XSS IDOR CSRF</li>
+        <li>LFI RFI Command Injection</li>
+        <li>Auth Bypass Access Control</li>
+        <li>Business Logic Flaws</li>
+        <li>Subdomain Takeover</li>
+        <li>Info Disclosure Misconfig</li>
+        <li>API Security Issues</li>
+        <li>File Upload Vulnerabilities</li>
+        <li>Clickjacking Open Redirect</li>
+        <li>Responsible Disclosure</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Networking & CCNA</h3>
+      <ul>
+        <li>TCP IP Model & OSI Layers</li>
+        <li>Routing Switching & VLANs</li>
+        <li>Subnetting & IP Addressing</li>
+        <li>Firewalls & Basic Network Security</li>
+        <li>Cisco Packet Tracer Labs</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Linux & Cloud</h3>
+      <ul>
+        <li>Linux File System & Permissions</li>
+        <li>User & Group Management</li>
+        <li>Bash Basics & Automation</li>
+        <li>Cloud Security Fundamentals</li>
+        <li>Server Deployment Basics</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Frontend Development</h3>
+      <ul>
+        <li>HTML5 CSS3 JavaScript</li>
+        <li>Responsive Web Design</li>
+        <li>UI Animations & Effects</li>
+        <li>Git & GitHub Workflow</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="title">Tools & Arsenal</div>
+  <div class="grid">
+    <div class="card"><h3>Reconnaissance</h3><ul><li>Amass</li><li>Subfinder</li><li>Assetfinder</li><li>Google Dorking</li></ul></div>
+    <div class="card"><h3>Scanning & Fuzzing</h3><ul><li>Nmap</li><li>Nuclei</li><li>FFUF</li><li>Dirsearch</li></ul></div>
+    <div class="card"><h3>Exploitation</h3><ul><li>Burp Suite</li><li>SQLmap</li><li>Custom Payloads</li></ul></div>
+    <div class="card"><h3>Reporting</h3><ul><li>Proof of Concept</li><li>Impact Analysis</li><li>HackerOne Style Reports</li></ul></div>
+  </div>
+</section>
+
+<section>
+  <div class="title">Projects & Experience</div>
+  <div class="grid">
+    <div class="card">
+      <h3>Security Research</h3>
+      <ul>
+        <li>Web Security Survey Papers</li>
+        <li>Vulnerability Analysis Reports</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Hands-on Labs</h3>
+      <ul>
+        <li>TryHackMe Practical Labs</li>
+        <li>Linux & Networking Labs</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Engineering Projects</h3>
+      <ul>
+        <li>Arduino Based Security Systems</li>
+        <li>Automation & Monitoring Tools</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2025 Hamid Ali | Cybersecurity Portfolio
+</footer>
+
+<script>
+  function scrollToSection(){
+    document.getElementById('about').scrollIntoView({behavior:'smooth'})
+  }
+
+  const canvas=document.getElementById('matrix')
+  const ctx=canvas.getContext('2d')
+  canvas.width=window.innerWidth
+  canvas.height=window.innerHeight
+
+  const letters='01ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+  const fontSize=14
+  const columns=canvas.width/fontSize
+  const drops=[]
+  for(let x=0;x<columns;x++)drops[x]=1
+
+  function draw(){
+    const speed=window.scrollY/50+0.05
+    ctx.fillStyle='rgba(5,10,20,'+speed+')'
+    ctx.fillRect(0,0,canvas.width,canvas.height)
+    ctx.fillStyle='#00ffcc'
+    ctx.font=fontSize+'px monospace'
+    for(let i=0;i<drops.length;i++){
+      const text=letters.charAt(Math.floor(Math.random()*letters.length))
+      ctx.fillText(text,i*fontSize,drops[i]*fontSize)
+      if(drops[i]*fontSize>canvas.height&&Math.random()>0.975)drops[i]=0
+      drops[i]++
+    }
+  }(){
+    ctx.fillStyle='rgba(5,10,20,0.05)'
+    ctx.fillRect(0,0,canvas.width,canvas.height)
+    ctx.fillStyle='#00ffcc'
+    ctx.font=fontSize+'px monospace'
+    for(let i=0;i<drops.length;i++){
+      const text=letters.charAt(Math.floor(Math.random()*letters.length))
+      ctx.fillText(text,i*fontSize,drops[i]*fontSize)
+      if(drops[i]*fontSize>canvas.height&&Math.random()>0.975)drops[i]=0
+      drops[i]++
+    }
+  }
+  setInterval(draw,33)
+
+  const text="Computer Systems Engineering Student | Cybersecurity & Networking | Pentesting & Bug Bounty | CCNA | Cisco Ethical Hacker | Linux & Cloud | Frontend Developer
+root@hamid:~# skills --list"
+  let i=0
+  function typeEffect()
+
+  document.addEventListener('mousemove',e=>{
+    const x=(e.clientX/window.innerWidth-0.5)*20
+    const y=(e.clientY/window.innerHeight-0.5)*20
+    document.querySelector('header').style.backgroundPosition=`${50+x}% ${50+y}%`
+  })
+
+  const terminalLines=[
+    'root@hamid:~# nmap -sC -sV target.com',
+    '[+] Open ports detected',
+    'root@hamid:~# nuclei -u target.com',
+    '[!] Vulnerability found: XSS',
+    'root@hamid:~# ffuf -u https://target.com/FUZZ -w wordlist',
+    '[+] Directory discovered: /admin',
+    'root@hamid:~# report --submit',
+    '[✓] Responsible disclosure completed'
+  ]
+  let t=0
+  function runTerminal()
+
+  let glitchOn=true
+  window.addEventListener('scroll',()=>{
+    document.querySelector('.glitch').style.animation=glitchOn?'none':'glitch 2s infinite'
+    glitchOn=!glitchOn
+  })
+
+  document.querySelectorAll('.card').forEach(c=>{
+    c.addEventListener('mouseenter',()=>{
+      const a=document.getElementById('alert')
+      a.style.display='block'
+      setTimeout(()=>a.style.display='none',800)
+    })
+  }){
+    if(t<terminalLines.length){
+      const term=document.getElementById('terminal')
+      term.innerHTML+=terminalLines[t]+'<br>'
+      term.scrollTop=term.scrollHeight
+      t++
+      setTimeout(runTerminal,900)
+    }
+  }
+  runTerminal(){
+    if(i<text.length){
+      document.getElementById('typing').innerHTML+=text.charAt(i)
+      i++
+      setTimeout(typeEffect,40)
+    }
+  }
+  typeEffect()
+</script>
+
+</body>
+</html>
