@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>HAMID ALI // SYSTEM PORTFOLIO</title>
+<title>Hamid Ali | Cybersecurity & Penetration Testing Portfolio</title>
+<meta name="description" content="Hamid Ali — Computer Systems Engineering graduate focused on penetration testing, web and API security, responsible disclosure, bug bounty research, networking, and IIoT security."/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
 <style>
@@ -503,6 +504,96 @@ section{position:relative;z-index:10;padding:100px 5%}
   color:var(--green);letter-spacing:1px;
 }
 
+/* ── CLICKABLE CARDS ── */
+.cert-link-card{color:inherit;text-decoration:none;cursor:pointer}
+.cert-link-card:hover{border-color:rgba(0,255,159,0.5);transform:translateY(-4px);box-shadow:0 0 25px rgba(0,255,159,0.08)}
+.cert-link-card .cert-status{transition:all .2s}
+.cert-link-card:hover .cert-status{color:var(--cyan);border-color:var(--cyan)}
+.experience-link{display:inline-block;margin-top:15px}
+
+
+/* ── RESPONSIBLE DISCLOSURE ── */
+.disclosure-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
+  gap:16px;
+}
+.disclosure-card{
+  border:1px solid var(--border);
+  background:var(--bg2);
+  padding:26px;
+  position:relative;
+  overflow:hidden;
+  transition:all .3s;
+}
+.disclosure-card:hover{
+  border-color:rgba(0,255,159,.45);
+  transform:translateY(-4px);
+  box-shadow:0 0 30px rgba(0,255,159,.07);
+}
+.disclosure-card::after{
+  content:'';
+  position:absolute;
+  top:0;left:0;
+  width:3px;height:100%;
+  background:var(--green);
+  opacity:.55;
+}
+.dc-type{
+  font-size:.62rem;
+  color:var(--yellow);
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin-bottom:12px;
+}
+.dc-title{
+  font-family:'Orbitron',monospace;
+  color:#fff;
+  font-size:.82rem;
+  line-height:1.5;
+  margin-bottom:8px;
+}
+.dc-target{
+  color:var(--cyan);
+  font-size:.68rem;
+  margin-bottom:14px;
+  word-break:break-word;
+}
+.dc-desc{
+  color:rgba(200,252,232,.55);
+  font-size:.74rem;
+  line-height:1.8;
+}
+.dc-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin-top:17px;
+}
+.dc-tag{
+  font-size:.58rem;
+  letter-spacing:1px;
+  padding:3px 8px;
+  border:1px solid rgba(0,229,255,.2);
+  color:rgba(0,229,255,.75);
+  background:rgba(0,229,255,.04);
+}
+.dc-status{
+  margin-top:16px;
+  padding-top:12px;
+  border-top:1px solid rgba(0,255,159,.1);
+  font-size:.6rem;
+  color:var(--green);
+  letter-spacing:1px;
+}
+.disclosure-note{
+  margin-top:18px;
+  color:rgba(200,252,232,.35);
+  font-size:.68rem;
+  line-height:1.8;
+  text-align:center;
+}
+
 /* ── CONTACT ── */
 #contact{
   border-top:1px solid var(--border);
@@ -567,6 +658,15 @@ footer{
   .about-layout{grid-template-columns:1fr}
   .research-card{grid-template-columns:1fr}
   nav .nav-links{display:none}
+  .hero-contacts{gap:8px}
+  .contact-line{align-items:flex-start;flex-wrap:wrap}
+  .contact-line span{min-width:70px}
+  .projects-grid{grid-template-columns:1fr}
+  .certs-grid{grid-template-columns:1fr}
+  .timeline{padding-left:28px}
+  .tl-dot{left:-33px}
+  .research-card{padding:25px}
+  footer{flex-direction:column;gap:10px;text-align:center}
 }
 
 @keyframes pulse{
@@ -607,7 +707,10 @@ footer{
     <a href="#skills">skills</a>
     <a href="#tools">tools</a>
     <a href="#projects">projects</a>
+    <a href="#experience">experience</a>
+    <a href="#security-research">disclosures</a>
     <a href="#research">research</a>
+    <a href="#certs">certs</a>
     <a href="#contact">contact</a>
   </div>
   <div class="nav-status">
@@ -623,9 +726,9 @@ footer{
     <div class="hero-left">
       <div class="sys-tag">PORTFOLIO v2.0 // SECURITY ENGINEER</div>
       <h1 class="hero-name">HAMID<br><span class="accent">ALI</span></h1>
-      <div class="hero-role">Cybersecurity · CSE · Ethical Hacking</div>
+      <div class="hero-role">Cybersecurity · CSE Graduate · Ethical Hacking</div>
       <p class="hero-bio">
-        Computer Systems Engineering student specializing in penetration testing, bug bounty research, and network security. Building the future while breaking what's broken.
+        Computer Systems Engineering graduate focused on penetration testing, web & API security, responsible disclosure, bug bounty research, and network security. I turn hands-on security testing into clear, evidence-based findings and practical remediation guidance.
       </p>
       <div class="hero-contacts">
         <div class="contact-line">
@@ -634,11 +737,11 @@ footer{
         </div>
         <div class="contact-line">
           <span>// LINKEDIN</span>
-          <a href="https://www.linkedin.com/in/hamid-ali-qureshi/" target="_blank">linkedin.com/in/hamid-ali-qureshi</a>
+          <a href="https://www.linkedin.com/in/hamid-ali-qureshi/" target="_blank" rel="noopener noreferrer">linkedin.com/in/hamid-ali-qureshi</a>
         </div>
         <div class="contact-line">
           <span>// GITHUB</span>
-          <a href="https://github.com/Mirhamidqureshi" target="_blank">Mirhamidqureshi</a>
+          <a href="https://github.com/Mirhamidqureshi" target="_blank" rel="noopener noreferrer">Mirhamidqureshi</a>
         </div>
       </div>
       <div class="hero-btns">
@@ -700,11 +803,11 @@ footer{
           <div class="stat-lbl">Labs</div>
         </div>
         <div class="stat-item">
-          <span class="stat-num" data-target="20">0</span>
-          <div class="stat-lbl">Vulns</div>
+          <span class="stat-num" data-target="6">0</span>
+          <div class="stat-lbl">Reports</div>
         </div>
         <div class="stat-item">
-          <span class="stat-num" data-target="10">0</span>
+          <span class="stat-num" data-target="5">0</span>
           <div class="stat-lbl">Projects</div>
         </div>
       </div>
@@ -719,7 +822,7 @@ footer{
         </div>
         <div class="term-body" id="mini-term">
           <div class="term-line"><span class="term-prompt">$</span><span class="term-cmd"> whoami</span></div>
-          <div class="term-out">hamid-ali // CSE + CyberSec</div>
+          <div class="term-out">hamid-ali // Pentesting + Security Research</div>
         </div>
       </div>
     </div>
@@ -736,13 +839,13 @@ footer{
   <div class="about-layout">
     <div class="about-text reveal">
       <p>
-        I'm a <strong>Computer Systems Engineering</strong> student with deep focus on <strong>cybersecurity, ethical hacking, and network defense</strong>. My approach bridges low-level systems knowledge with real-world offensive security techniques.
+        I'm a <strong>Computer Systems Engineering</strong> graduate with a strong focus on <strong>cybersecurity, ethical hacking, and network defense</strong>. My approach bridges low-level systems knowledge with real-world offensive security techniques.
       </p>
       <p>
-        I actively hunt bugs, build labs, and contribute to security research. I believe in learning by <strong>breaking things responsibly</strong> — understanding how attacks work to build better defenses.
+        I actively perform authorized security testing, build hands-on labs, and document responsible-disclosure cases. My workflow emphasizes <strong>reproducible evidence, impact analysis, and practical remediation</strong> rather than unsupported claims.
       </p>
       <p>
-        Currently pursuing <strong>CCNA certification</strong> and expanding expertise into cloud security and IIoT threat modeling. Goal: land a red team / security engineer role at a global tech company.
+        Currently expanding my expertise in <strong>CCNA networking, cloud security, web/API security, and IIoT threat modeling</strong>. Open to cybersecurity, penetration testing, and security engineering opportunities.
       </p>
     </div>
     <div class="skill-bars reveal">
@@ -889,54 +992,219 @@ footer{
     <div class="proj-card reveal" onclick="window.open('https://github.com/Mirhamidqureshi/AI-IIoT-Security-Survey','_blank')">
       <div class="pc-label">Security Research</div>
       <div class="pc-title">AI-Driven IIoT Security Survey</div>
-      <div class="pc-desc">Comprehensive research paper analyzing AI-based security frameworks for Industrial Internet of Things environments. Covers threat detection models and defense architectures.</div>
-      <div class="pc-stack">
-        <span class="pc-tag">IIoT</span><span class="pc-tag">AI/ML</span>
-        <span class="pc-tag">Threat Detection</span><span class="pc-tag">Research</span>
-      </div>
-      <a class="pc-link">View on GitHub</a>
+      <div class="pc-desc">Research project analyzing AI-driven security frameworks, threat detection approaches, and defense architectures for Industrial Internet of Things environments.</div>
+      <div class="pc-stack"><span class="pc-tag">IIoT</span><span class="pc-tag">AI/ML</span><span class="pc-tag">Threat Detection</span><span class="pc-tag">Research</span></div>
+      <a class="pc-link" href="https://github.com/Mirhamidqureshi/AI-IIoT-Security-Survey" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">View on GitHub</a>
     </div>
 
-    <div class="proj-card reveal" onclick="window.open('https://github.com/Mirhamidqureshi/CampusKonnect','_blank')">
+    <div class="proj-card reveal" onclick="window.open('https://github.com/Mirhamidqureshi','_blank')">
+      <div class="pc-label">Final Year Project</div>
+      <div class="pc-title">SafeSurf AI</div>
+      <div class="pc-desc">Cybersecurity monitoring platform for preliminary website, email, and WiFi security analysis, supported by a Flask backend, SQLite history, dashboard, and Chrome extension.</div>
+      <div class="pc-stack"><span class="pc-tag">Python</span><span class="pc-tag">Flask</span><span class="pc-tag">SQLite</span><span class="pc-tag">Chrome Extension</span></div>
+      <a class="pc-link" href="https://github.com/Mirhamidqureshi" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">View GitHub Profile</a>
+    </div>
+
+    <div class="proj-card reveal" onclick="window.open('https://github.com/Mirhamidqureshi','_blank')">
       <div class="pc-label">Startup MVP</div>
       <div class="pc-title">CampusKonnect — Student Marketplace</div>
-      <div class="pc-desc">University buy/sell platform built from scratch. Collected 15+ listings in pilot phase, generated real revenue, and validated a scalable campus startup concept.</div>
-      <div class="pc-stack">
-        <span class="pc-tag">Google Sites</span><span class="pc-tag">Forms</span>
-        <span class="pc-tag">Sheets</span><span class="pc-tag">MVP</span>
-      </div>
-      <a class="pc-link">View on GitHub</a>
+      <div class="pc-desc">University buy/sell platform developed as a campus startup MVP, using Google Sites, Forms, and Sheets to validate the concept and collect pilot listings.</div>
+      <div class="pc-stack"><span class="pc-tag">Google Sites</span><span class="pc-tag">Forms</span><span class="pc-tag">Sheets</span><span class="pc-tag">MVP</span></div>
+      <a class="pc-link" href="https://github.com/Mirhamidqureshi" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">View GitHub Profile</a>
     </div>
 
-    <div class="proj-card reveal" onclick="window.open('https://github.com/Mirhamidqureshi/Automatic-Light-Control-System','_blank')">
+    <div class="proj-card reveal" onclick="window.open('https://github.com/Mirhamidqureshi','_blank')">
       <div class="pc-label">Embedded Systems</div>
       <div class="pc-title">Automatic Light Control System</div>
-      <div class="pc-desc">Arduino-based embedded project using PIR motion sensors and LDR light detection for energy-efficient automation in smart environments.</div>
-      <div class="pc-stack">
-        <span class="pc-tag">Arduino</span><span class="pc-tag">PIR Sensor</span>
-        <span class="pc-tag">LDR</span><span class="pc-tag">Embedded C</span>
-      </div>
-      <a class="pc-link">View on GitHub</a>
+      <div class="pc-desc">Arduino-based automation project using PIR motion sensing and LDR light detection for energy-efficient smart-environment control.</div>
+      <div class="pc-stack"><span class="pc-tag">Arduino</span><span class="pc-tag">PIR</span><span class="pc-tag">LDR</span><span class="pc-tag">Embedded C</span></div>
+      <a class="pc-link" href="https://github.com/Mirhamidqureshi" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">View GitHub Profile</a>
     </div>
 
     <div class="proj-card reveal" onclick="window.open('https://tryhackme.com/p/Hamidali6537','_blank')">
       <div class="pc-label">Hands-on Labs</div>
       <div class="pc-title">TryHackMe — 120+ Labs</div>
-      <div class="pc-desc">Extensive hands-on practice across web exploitation, privilege escalation, network attacks, Linux hardening, and CTF challenges on TryHackMe platform.</div>
-      <div class="pc-stack">
-        <span class="pc-tag">CTF</span><span class="pc-tag">Linux</span>
-        <span class="pc-tag">Web Attacks</span><span class="pc-tag">PrivEsc</span>
-      </div>
-      <a class="pc-link">View TryHackMe Profile</a>
+      <div class="pc-desc">Hands-on practice across web exploitation, privilege escalation, network attacks, Linux, defensive security, and CTF-style challenges.</div>
+      <div class="pc-stack"><span class="pc-tag">CTF</span><span class="pc-tag">Linux</span><span class="pc-tag">Web Security</span><span class="pc-tag">PrivEsc</span></div>
+      <a class="pc-link" href="https://tryhackme.com/p/Hamidali6537" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()">View TryHackMe Profile</a>
     </div>
 
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" style="background:linear-gradient(to bottom,var(--bg),var(--bg2),var(--bg))">
+  <div class="section-header reveal">
+    <span class="section-num">05</span>
+    <h2 class="section-title">Experience</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="timeline">
+
+    <div class="tl-item reveal">
+      <div class="tl-dot"></div>
+      <div class="tl-date">MAY 2026 — JUN 2026 · REMOTE</div>
+      <div class="tl-title">Penetration Tester | Web Security Researcher | Bug Bounty Practitioner</div>
+      <div class="tl-sub">micro1 · Part-time</div>
+      <div class="tl-desc">Passed an AI-based technical evaluation for penetration testing and web application security. Practical work covered vulnerability assessment, reconnaissance, OWASP Top 10 testing, endpoint analysis, API security, and structured vulnerability reporting.</div>
+      <a class="pc-link" href="https://www.linkedin.com/in/hamid-ali-qureshi/recent-activity/all/" target="_blank" rel="noopener noreferrer">View LinkedIn Evidence</a>
+    </div>
+
+    <div class="tl-item reveal">
+      <div class="tl-dot"></div>
+      <div class="tl-date">JUL 2025 — DEC 2025 · REMOTE</div>
+      <div class="tl-title">Bug Bounty & Web Application Security Trainee</div>
+      <div class="tl-sub">Defronix Cyber Security · Freelance</div>
+      <div class="tl-desc">Completed practical training covering OWASP Top 10, advanced reconnaissance, vulnerability discovery, web exploitation, API testing, authorization testing, and structured reporting using tools such as Burp Suite, Nmap, FFUF, Amass, Subfinder, Wayback, and ParamSpider.</div>
+      <a class="pc-link" href="https://www.linkedin.com/in/hamid-ali-qureshi/recent-activity/all/" target="_blank" rel="noopener noreferrer">View LinkedIn</a>
+    </div>
+
+    <div class="tl-item reveal">
+      <div class="tl-dot"></div>
+      <div class="tl-date">JUL 2025 — OCT 2025 · MIRPUR, AJK</div>
+      <div class="tl-title">Cyber Security Student</div>
+      <div class="tl-sub">Moboroid · Internship</div>
+      <div class="tl-desc">Gained practical exposure to cybersecurity concepts, security risk, and hands-on security activities in an internship environment.</div>
+      <a class="pc-link" href="https://www.linkedin.com/in/hamid-ali-qureshi/recent-activity/all/" target="_blank" rel="noopener noreferrer">View LinkedIn</a>
+    </div>
+
+    <div class="tl-item reveal">
+      <div class="tl-dot"></div>
+      <div class="tl-date">MAY 2025 — AUG 2025 · MIRPUR, AJK</div>
+      <div class="tl-title">Cisco Network Engineer</div>
+      <div class="tl-sub">Special Communications Organization (SCO) · Apprenticeship</div>
+      <div class="tl-desc">Completed a three-month CCNA-focused training program covering routing, switching, IP addressing, subnetting, network troubleshooting, and practical Cisco device configuration.</div>
+      <a class="pc-link" href="https://www.linkedin.com/in/hamid-ali-qureshi/recent-activity/all/" target="_blank" rel="noopener noreferrer">View LinkedIn</a>
+    </div>
+
+    <div class="tl-item reveal">
+      <div class="tl-dot"></div>
+      <div class="tl-date">FEB 2024 — DEC 2025 · MIRPUR, AJK</div>
+      <div class="tl-title">Operations and Logistics Lead</div>
+      <div class="tl-sub">AWS Cloud Club MUST · Seasonal</div>
+      <div class="tl-desc">Contributed to student community activities, event operations, project coordination, and cloud-focused community initiatives at MUST.</div>
+      <a class="pc-link" href="https://www.linkedin.com/in/hamid-ali-qureshi/recent-activity/all/" target="_blank" rel="noopener noreferrer">View LinkedIn</a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- RESPONSIBLE DISCLOSURE / SECURITY RESEARCH -->
+<section id="security-research" style="background:linear-gradient(to bottom,var(--bg),var(--bg2),var(--bg))">
+  <div class="section-header reveal">
+    <span class="section-num">06</span>
+    <h2 class="section-title">Responsible Disclosure</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="disclosure-grid">
+
+    <article class="disclosure-card reveal">
+      <div class="dc-type">HOST HEADER / BLIND SSRF</div>
+      <div class="dc-title">Password Reset Flow — Host Header Injection</div>
+      <div class="dc-target">global.khaadi.com</div>
+      <div class="dc-desc">
+        Reported a user-controlled X-Forwarded-Host issue in a password-reset flow. Out-of-band DNS/HTTP interaction was observed during controlled testing. Testing was stopped after sufficient evidence was collected.
+      </div>
+      <div class="dc-meta">
+        <span class="dc-tag">AUTH FLOW</span>
+        <span class="dc-tag">OOB INTERACTION</span>
+        <span class="dc-tag">RESPONSIBLE DISCLOSURE</span>
+      </div>
+      <div class="dc-status">REPORTED · TECHNICAL REPORT PROVIDED</div>
+    </article>
+
+    <article class="disclosure-card reveal">
+      <div class="dc-type">SQL INJECTION</div>
+      <div class="dc-title">Administrator Authentication Bypass</div>
+      <div class="dc-target">indoreujjaintaxi.in</div>
+      <div class="dc-desc">
+        Reported an SQL injection condition in the administrator login flow that resulted in authentication bypass during a limited test. Administrative functionality and customer contact records were visible; no records were intentionally modified or deleted.
+      </div>
+      <div class="dc-meta">
+        <span class="dc-tag">SQLi</span>
+        <span class="dc-tag">AUTH BYPASS</span>
+        <span class="dc-tag">IMPACT ANALYSIS</span>
+      </div>
+      <div class="dc-status">REPORTED · EVIDENCE PROVIDED</div>
+    </article>
+
+    <article class="disclosure-card reveal">
+      <div class="dc-type">ACCOUNT ENUMERATION</div>
+      <div class="dc-title">Timing-Based LDAP Username Enumeration</div>
+      <div class="dc-target">auburn.instructure.com / login/ldap</div>
+      <div class="dc-desc">
+        Disclosed a timing-based username enumeration issue affecting the LDAP login flow. Instructure's security team acknowledged the report and directed the finding to its Bugcrowd submission process.
+      </div>
+      <div class="dc-meta">
+        <span class="dc-tag">TIMING ANALYSIS</span>
+        <span class="dc-tag">LDAP</span>
+        <span class="dc-tag">BUGCROWD</span>
+      </div>
+      <div class="dc-status">ACKNOWLEDGED · BUGCROWD ROUTING</div>
+    </article>
+
+    <article class="disclosure-card reveal">
+      <div class="dc-type">WEB / API SECURITY</div>
+      <div class="dc-title">Newsletter API Security Observations</div>
+      <div class="dc-target">digitalpremiersolutions.com</div>
+      <div class="dc-desc">
+        Reported multiple observations around newsletter subscription handling, including stored-input/XSS risk, missing rate limiting, CSRF protection gaps, validation-error information disclosure, and newline input handling.
+      </div>
+      <div class="dc-meta">
+        <span class="dc-tag">STORED XSS</span>
+        <span class="dc-tag">RATE LIMITING</span>
+        <span class="dc-tag">CSRF</span>
+        <span class="dc-tag">INFO DISCLOSURE</span>
+      </div>
+      <div class="dc-status">REPORTED · FOLLOW-UP SENT</div>
+    </article>
+
+    <article class="disclosure-card reveal">
+      <div class="dc-type">PASSIVE RECONNAISSANCE</div>
+      <div class="dc-title">Public Web Security Observations</div>
+      <div class="dc-target">nadra.gov.pk</div>
+      <div class="dc-desc">
+        Submitted a passive-reconnaissance report covering publicly observable security posture, CSP observations, server-timing information disclosure, and historical technology references. No intrusive exploitation was performed.
+      </div>
+      <div class="dc-meta">
+        <span class="dc-tag">PASSIVE RECON</span>
+        <span class="dc-tag">CSP</span>
+        <span class="dc-tag">INFO DISCLOSURE</span>
+        <span class="dc-tag">RESPONSIBLE RESEARCH</span>
+      </div>
+      <div class="dc-status">DISCLOSED · PASSIVE TESTING ONLY</div>
+    </article>
+
+    <article class="disclosure-card reveal">
+      <div class="dc-type">PKI / TLS RESEARCH</div>
+      <div class="dc-title">SSL Certificate Configuration Review</div>
+      <div class="dc-target">Salesforce B2C Commerce staging environment</div>
+      <div class="dc-desc">
+        Reported a publicly observable certificate configuration involving a staging environment. Salesforce reviewed the case and classified it as a false positive, explaining the configuration as a functional private-CA requirement protected by access controls.
+      </div>
+      <div class="dc-meta">
+        <span class="dc-tag">TLS / PKI</span>
+        <span class="dc-tag">SECURITY REVIEW</span>
+        <span class="dc-tag">LEARNING OUTCOME</span>
+      </div>
+      <div class="dc-status">CLOSED · CLASSIFIED FALSE POSITIVE BY VENDOR</div>
+    </article>
+
+  </div>
+
+  <div class="disclosure-note reveal">
+    Public portfolio summaries intentionally omit sensitive targets, credentials, tokens, private evidence, and exploit payloads.
+    Detailed technical reports can be shared privately where appropriate.
   </div>
 </section>
 
 <!-- RESEARCH -->
 <section id="research">
   <div class="section-header reveal">
-    <span class="section-num">05</span>
+    <span class="section-num">07</span>
     <h2 class="section-title">Research</h2>
     <div class="section-line"></div>
   </div>
@@ -966,7 +1234,7 @@ footer{
       </div>
       <div class="rc-meta">
         <span class="rc-meta-label">STATUS</span>
-        <span class="rc-meta-val" style="color:var(--green)">Published</span>
+        <span class="rc-meta-val" style="color:var(--green)">Repository Available</span>
       </div>
       <a href="https://github.com/Mirhamidqureshi/AI-IIoT-Security-Survey" target="_blank" class="btn-primary" style="margin-top:10px;font-size:0.7rem;justify-content:center" onclick="event.stopPropagation()">View Paper</a>
     </div>
@@ -976,50 +1244,64 @@ footer{
 <!-- CERTIFICATIONS -->
 <section id="certs" style="background:linear-gradient(to bottom,var(--bg),var(--bg2))">
   <div class="section-header reveal">
-    <span class="section-num">06</span>
+    <span class="section-num">08</span>
     <h2 class="section-title">Certifications</h2>
     <div class="section-line"></div>
   </div>
   <div class="certs-grid">
-    <div class="cert-card reveal">
+
+    <a class="cert-card cert-link-card reveal" href="https://www.linkedin.com/feed/update/urn:li:activity:7376981611516534784/" target="_blank" rel="noopener noreferrer">
       <div class="cert-icon">🛡</div>
       <div class="cert-body">
         <div class="cert-name">Cisco Ethical Hacker</div>
         <div class="cert-org">Cisco Networking Academy</div>
-        <span class="cert-status">EARNED</span>
+        <span class="cert-status">EARNED · VIEW POST ↗</span>
       </div>
-    </div>
-    <div class="cert-card reveal">
+    </a>
+
+    <a class="cert-card cert-link-card reveal" href="https://www.linkedin.com/in/hamid-ali-qureshi/recent-activity/all/" target="_blank" rel="noopener noreferrer">
+      <div class="cert-icon">🛡</div>
+      <div class="cert-body">
+        <div class="cert-name">Penetration Tester</div>
+        <div class="cert-org">micro1</div>
+        <span class="cert-status">CERTIFIED · VIEW LINKEDIN ↗</span>
+      </div>
+    </a>
+
+    <a class="cert-card cert-link-card reveal" href="https://www.cisco.com/site/us/en/learn/training-certifications/certifications/enterprise/ccna/index.html" target="_blank" rel="noopener noreferrer">
       <div class="cert-icon">🌐</div>
       <div class="cert-body">
-        <div class="cert-name">CCNA (In Progress)</div>
-        <div class="cert-org">Cisco</div>
-        <span class="cert-status" style="border-color:var(--yellow);color:var(--yellow)">IN PROGRESS</span>
+        <div class="cert-name">CCNA</div>
+        <div class="cert-org">Cisco · In Progress</div>
+        <span class="cert-status progress">IN PROGRESS ↗</span>
       </div>
-    </div>
-    <div class="cert-card reveal">
+    </a>
+
+    <a class="cert-card cert-link-card reveal" href="https://tryhackme.com/p/Hamidali6537" target="_blank" rel="noopener noreferrer">
       <div class="cert-icon">💻</div>
       <div class="cert-body">
         <div class="cert-name">TryHackMe Top Labs</div>
         <div class="cert-org">TryHackMe Platform</div>
-        <span class="cert-status">120+ LABS</span>
+        <span class="cert-status">120+ LABS · VIEW PROFILE ↗</span>
       </div>
-    </div>
-    <div class="cert-card reveal">
+    </a>
+
+    <a class="cert-card cert-link-card reveal" href="https://www.linkedin.com/in/hamid-ali-qureshi/recent-activity/all/" target="_blank" rel="noopener noreferrer">
       <div class="cert-icon">🔬</div>
       <div class="cert-body">
         <div class="cert-name">Bug Bounty Research</div>
-        <div class="cert-org">Self-directed / HackerOne Style</div>
-        <span class="cert-status">20+ VULNS</span>
+        <div class="cert-org">Self-directed Security Research</div>
+        <span class="cert-status">20+ VULNS · VIEW LINKEDIN ↗</span>
       </div>
-    </div>
+    </a>
+
   </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
   <div class="section-header reveal">
-    <span class="section-num">07</span>
+    <span class="section-num">09</span>
     <h2 class="section-title">Contact</h2>
     <div class="section-line"></div>
   </div>
@@ -1030,15 +1312,15 @@ footer{
     </div>
     <div class="cg-item">
       <div class="cg-label">// LinkedIn</div>
-      <div class="cg-value"><a href="https://www.linkedin.com/in/hamid-ali-qureshi/" target="_blank">hamid-ali-qureshi</a></div>
+      <div class="cg-value"><a href="https://www.linkedin.com/in/hamid-ali-qureshi/" target="_blank" rel="noopener noreferrer">hamid-ali-qureshi</a></div>
     </div>
     <div class="cg-item">
       <div class="cg-label">// GitHub</div>
-      <div class="cg-value"><a href="https://github.com/Mirhamidqureshi" target="_blank">Mirhamidqureshi</a></div>
+      <div class="cg-value"><a href="https://github.com/Mirhamidqureshi" target="_blank" rel="noopener noreferrer">Mirhamidqureshi</a></div>
     </div>
     <div class="cg-item">
       <div class="cg-label">// TryHackMe</div>
-      <div class="cg-value"><a href="https://tryhackme.com/p/Hamidali6537" target="_blank">Hamidali6537</a></div>
+      <div class="cg-value"><a href="https://tryhackme.com/p/Hamidali6537" target="_blank" rel="noopener noreferrer">Hamidali6537</a></div>
     </div>
   </div>
   <div style="font-size:0.78rem;color:rgba(200,252,232,0.3);margin-top:30px;text-align:center" class="reveal">
@@ -1050,7 +1332,7 @@ footer{
 <footer>
   <span>HAMID ALI // CYBERSECURITY PORTFOLIO</span>
   <span id="footer-time" style="color:var(--green)"></span>
-  <span>© 2025 ALL RIGHTS RESERVED</span>
+  <span>© 2026 ALL RIGHTS RESERVED</span>
 </footer>
 
 <script>
@@ -1132,13 +1414,13 @@ document.querySelectorAll('a,button,.proj-card,.research-card,.cert-card').forEa
 // ─── MINI TERMINAL ───
 const termLines = [
   {p:'$', c:' nmap -sV target.com', o:''},
-  {p:'', c:'', o:'[+] 3 open ports found'},
+  {p:'', c:'', o:'[+] reconnaissance workflow ready'},
   {p:'$', c:' nuclei -u target.com', o:''},
-  {p:'', c:'', o:'[!] XSS detected: /search'},
+  {p:'', c:'', o:'[!] analyze only authorized targets'},
   {p:'$', c:' ffuf -w list -u /FUZZ', o:''},
-  {p:'', c:'', o:'[+] /admin /backup /api'},
+  {p:'', c:'', o:'[+] endpoint discovery complete'},
   {p:'$', c:' report --submit', o:''},
-  {p:'', c:'', o:'[✓] Disclosure complete'},
+  {p:'', c:'', o:'[✓] responsible reporting workflow'},
 ];
 let ti = 2;
 const termEl = document.getElementById('mini-term');
